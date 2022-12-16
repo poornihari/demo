@@ -10,10 +10,10 @@
   }
 </style>
 
-<script src="https://aspigrow.my.salesforce.com/lightning/lightning.out.js"></script>
+<script src="https://aroma360--scheduler.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
 <script>
   $Lightning.use(
-    "runtime_appointmentbooking:lightningoutGuest1", // name of the Lightning app
+    "runtime_appointmentbooking:lightningoOutGuest", // name of the Lightning app
     function () {
       $Lightning.createComponent(
         "lightning:flow", // top-level component of your app
@@ -21,11 +21,11 @@
         "lightningLocator", // the DOM location to insert the component
         function (cmp) {
           console.log("Hi from callback"); // callback when component is created and active on the page
-          cmp.startFlow("Inbound_New_Guest_Appointment1");
+          cmp.startFlow("Inbound_Guest_Appointment_New");
         }
       );
     },
-    "https://aspigrow.my.salesforce.com/aurascheduler" // Community endpoint
+    "https://aroma360--scheduler.sandbox.my.salesforce-sites.com/scheduler" // Community endpoint
   );
 </script>
 <div id="lightningLocator">
