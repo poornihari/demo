@@ -120,32 +120,14 @@
     },
     "https://aroma360--scheduler.sandbox.my.salesforce-sites.com/scheduler" // Community endpoint
   );
-  window.onload = function() {
-        if (window.jQuery) {
-            jQuery(“body”).on(‘DOMSubtreeModified’, “#lightningLocator”, function() {
-                if(jQuery(‘#lightningLocator lightning-layout-item’).length){
-                    jQuery(‘.calender-info-wrapper’).hide();
-                }else{
-                    jQuery(‘.calender-info-wrapper’).show();
-                }
-            });
-        }else if (window.$) {
-            $(“body”).on(‘DOMSubtreeModified’, “#lightningLocator”, function() {
-                if($(‘#lightningLocator lightning-layout-item’).length){
-                    $(‘.calender-info-wrapper’).hide();
-                }else{
-                    $(‘.calender-info-wrapper’).show();
-                }
-            });
-        }else{
-            document.getElementById(“lightningLocator”).addEventListener(“DOMSubtreeModified”, function(e) {
-                if(document.getElementsByTagName(“lightning-layout-item”).length){
-                    document.getElementsByClassName(‘calender-info-wrapper’)[0].style.display = ‘block’;
-                }else{
-                    document.getElementsByClassName(‘calender-info-wrapper’)[0].style.display = ‘none’;
-                }
-            }, false);
-        }
+ window.onload = function() {
+        document.getElementById(“lightningLocator”).addEventListener(“DOMSubtreeModified”, function(e) {
+            if(document.getElementsByTagName(“lightning-layout-item”).length){
+                document.getElementsByClassName(‘calender-info-wrapper’)[0].style.display = ‘block’;
+            }else{
+                document.getElementsByClassName(‘calender-info-wrapper’)[0].style.display = ‘none’;
+            }
+        }, false);
     }
 </script>
   <div class="calender-page-wrapper">
