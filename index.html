@@ -121,11 +121,11 @@
     "https://aroma360--scheduler.sandbox.my.salesforce-sites.com/scheduler" // Community endpoint
   );
  window.onload = function() {
-        document.getElementById(“lightningLocator”).addEventListener(“DOMSubtreeModified”, function(e) {
-            if(document.getElementsByTagName(“lightning-layout-item”).length){
-                document.getElementsByClassName(‘calender-info-wrapper’)[0].style.display = ‘block’;
+        document.getElementById("lightningLocator").addEventListener("DOMSubtreeModified", function(e) {
+            if(document.getElementsByTagName("lightning-layout-item").length){
+                document.getElementsByClassName('calender-info-wrapper')[0].style.display = ‘block’;
             }else{
-                document.getElementsByClassName(‘calender-info-wrapper’)[0].style.display = ‘none’;
+                document.getElementsByClassName('calender-info-wrapper')[0].style.display = ‘none’;
             }
         }, false);
     }
