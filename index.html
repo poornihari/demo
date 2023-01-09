@@ -9,6 +9,38 @@
     display: inline-flex !important;
     width:60%
   }
+  .column {
+  float: left;
+  width: 50%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
 </style>
 
 <script src="https://aroma360--scheduler.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
@@ -29,11 +61,18 @@
     "https://aroma360--scheduler.sandbox.my.salesforce-sites.com/scheduler" // Community endpoint
   );
 </script>
-  <div class="grid-container">
-    <div class="grid-item"><img src="https://aroma360--scheduler--c.sandbox.vf.force.com/resource/1671195178000/aroma360" alt="Aroma360" style="width:200px;height:200px;"></div>
-    <div id="lightningLocator" class="grid-item">
+  <div class="row">
+  <div class="column">
+    <div class="card"> 
+<img src="https://aroma360--scheduler--c.sandbox.vf.force.com/resource/1671195178000/aroma360" alt="Aroma360" style="width:200px;height:200px;">
+    </div>
+    </div>
+    <div class="column">
+    <div class="card"> 
+
  <!-- <p>Lightning Component mentioned in the Script is invoked from here</p>-->
 </div>
+    </div>
   </div>
 
 </body>
