@@ -123,7 +123,7 @@
  window.onload = function() {
         document.getElementById("lightningLocator").addEventListener("DOMSubtreeModified", function(e) {
         console.log(document.getElementsByClassName('slds-page-header__name-title').length);
-            if(document.getElementsByTagName("lightning-layout-item").length){
+            if(!document.getElementsByClassName('slds-page-header__name-title').length){
                 document.getElementsByClassName('calender-info-wrapper')[0].style.display = 'none';
             }else{
                 document.getElementsByClassName('calender-info-wrapper')[0].style.display = 'block';
@@ -142,7 +142,7 @@
                 </div>
             </div>
             <div class="calender-widget-wrapper">
-                <div id="lightningLocator" class=“slds-scope” data-ltngout-rendered-by="6:0">
+                <div id="lightningLocator" class="slds-scope" data-ltngout-rendered-by="6:0">
                     <!-- <p>Lightning Component mentioned in the Script is invoked from here</p>-->
                 </div>
             </div>
