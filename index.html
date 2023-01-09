@@ -122,7 +122,7 @@
   );
  window.onload = function() {
         document.getElementById("lightningLocator").addEventListener("DOMSubtreeModified", function(e) {
-          console.log(document.getElementsByTagName('lightning-layout-item').length);
+        console.log(document.getElementsByClassName('slds-page-header__name-title').length);
             if(document.getElementsByTagName("lightning-layout-item").length){
                 document.getElementsByClassName('calender-info-wrapper')[0].style.display = 'none';
             }else{
