@@ -123,9 +123,9 @@
  window.onload = function() {
         document.getElementById("lightningLocator").addEventListener("DOMSubtreeModified", function(e) {
             if(document.getElementsByTagName("lightning-layout-item").length){
-                document.getElementsByClassName('calender-info-wrapper')[0].style.display = 'block';
-            }else{
                 document.getElementsByClassName('calender-info-wrapper')[0].style.display = 'none';
+            }else{
+                document.getElementsByClassName('calender-info-wrapper')[0].style.display = 'block';
             }
         }, false);
     }
