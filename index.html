@@ -3,14 +3,103 @@
 </head>
 <body>
 <style>
-  .slds-visual-picker_vertical .slds-visual-picker__figure {
-    height: inherit !important;
-  }
-
-  .runtime_appointmentbookingFlowLocation .slds-visual-picker_vertical {
-    display: inline-flex !important;
-
-  }
+          .calender-page-wrapper{display: flex;flex-direction: row; align-content: stretch;
+            margin: 25px auto; max-width: 1024px;transition: all .22s ease-out;border: 1px solid #eee;
+            border-radius: 10px; box-shadow: 0 1px 8px 0 rgb(0 0 0 / 8%);background-color: #fff;
+            line-height: 1.125;color: #272727;font-family: Bauer Bodoni,serif;font-style: normal;letter-spacing: 0px;box-sizing: border-box;
+        }
+        .calender-info-wrapper{ flex: 30%; width: 30%; align-self: flex-start; box-sizing: border-box;}
+        .branding{ display: flex; justify-content: center; align-items: center; padding: 25px; border-bottom: 1px solid #eee;        }
+        .branding img{max-width: 250px;max-height: 200px; min-height: 100px; width: 100%;}
+        .brand-info{ justify-content: left; align-items: center; padding: 25px;}
+        .calender-widget-wrapper{ flex: 70%; width: 70%; align-self: center; box-sizing: border-box;}
+        h3{ font-size: 26px;font-weight: 400;}
+        h4{ font-size: 18px;font-weight: 400;}
+        .brand-info h3{margin-top: 0;}
+        @media (max-width: 800px) {
+            .calender-page-wrapper{ flex-direction: column; }
+            .calender-info-wrapper,  .calender-widget-wrapper{ flex: 100%; width: 100%;}
+            .brand-info{ justify-content: center; text-align: center}
+            .branding{padding: 10px 25px;}
+            .branding img{max-height: 100px;}
+            h3,h4{margin-bottom: 10px; margin-top: 10px}
+        }
+    </style>
+    <style>
+        .calender-widget-wrapper .slds-scope:not(html), .calender-widget-wrapper .slds-scope body { font-size: 14px; background: transparent; }
+        .calender-widget-wrapper .slds-scope {
+            font-family: Bauer Bodoni,serif;
+            font-size: 100%;
+            line-height: 1.4em;
+            background: transparent;;
+            color: #272727;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        .slds-scope .slds-spinner_brand.slds-spinner:after{background-color: #877063;}
+        .slds-scope .slds-p-horizontal_small, .slds-scope .slds-p-horizontal--small{padding: 0; margin: 0}
+        .slds-scope .slds-card{ border: 1px solid #eee;color: #272727;padding: 0;margin: 0;border-radius: 0;background: transparent;box-shadow: none;}
+        .slds-scope .slds-has-divider_bottom, .slds-scope .slds-has-divider--bottom{border-bottom: 1px solid #eee;}
+        .slds-scope .slds-p-vertical_small, .slds-scope .slds-p-vertical--small{padding-top: 10px;padding-bottom: 10px;}
+        .forcePageError{padding-bottom: 10px;margin-top: 25px; border-bottom: 1px solid #eee;}
+        .mobileHeader{margin-top: 25px}
+        .mobileHeader h2{display: none;}
+        .calender-widget-wrapper .slds-scope .slds-page-header{  padding: 0 20px 10px; border-bottom: 1px solid #eee; background: transparent;}
+        .calender-widget-wrapper .slds-scope .slds-page-header__title{font-size: 18px;font-weight: 400; line-height: 1.4em}
+        .slds-scope .slds-form-element__control{display: inline-block;}
+        .slds-scope button .slds-truncate{max-width: 250px}
+        .slds-scope .slds-form-element__label{color: #363636;font-family: Assistant,sans-serif; font-style: normal;}
+        .slds-scope .slds-input-has-icon_right .slds-input_faux{border: 1px solid #D3D3D3;  color: #363636;border-radius: 0;}
+        .slds-scope .slds-input-has-icon_right .slds-input[name=“date”]{--slds-c-input-spacing-horizontal-end: 0; padding: 0; border: 1px solid #877063;  color:#877063;border-radius: 0;}
+        .slds-scope .slds-button-group-list .slds-button{border-color: #D3D3D3; color:#877063;}
+        .slds-scope .slds-button-group-list .slds-button:hover{background-color: #FAF7F1;}
+        .slds-scope .slds-button_icon{color:#877063;}
+        .slds-scope .slds-input-has-icon_right .slds-input[name=“date”]:hover{background-color: #FAF7F1}
+        .slds-scope .slds-input-has-icon_right .slds-input__icon{right: 14px;}
+        .slds-scope .slds-button_neutral, .slds-scope .slds-button--neutral{border-color: #D3D3D3; color:#877063;}
+        .slds-scope .slds-button_neutral:hover, .slds-scope .slds-button--neutral:hover{background-color: #FAF7F1;color:#877063;}
+        .slds-scope .slds-dropdown-trigger .slds-dropdown{z-index: 1000; width: auto; position: absolute; max-width: 150%;}
+        .slds-grid.slds-grid_align-space.slds-has-divider_bottom.slds-p-vertical_small{margin-right: 20px}
+        .runtime_appointmentbookingFlowTimeslot .cardWith{min-width: 100%;}
+        .runtime_appointmentbookingFlowTimeslot .noTimeSlots{width: 100%;right: 0;}
+        .slds-scope .slds-p-horizontal_x-small, .slds-scope .slds-p-horizontal--x-small{padding: 0; text-align: center;}
+        .runtime_appointmentbookingFlowTimeslot .slds-radio_button-group .slds-button.slds-radio_button label,
+        .slds-scope .slds-radio_button__label, .slds-scope .slds-radio--button__label{background-color: #fff; border-radius: 0 !important; border: 1px solid #877063;  color:#877063;padding: 5px 3px; line-height: 1.4em}
+        .runtime_appointmentbookingFlowTimeslot .slds-radio_button-group .slds-button.slds-radio_button label:hover,
+        .slds-scope .slds-radio_button__label:hover, .slds-scope .slds-radio--button__label:hover{background-color: #FAF7F1;}
+        .slds-scope .runtime_appointmentbookingFlowTimeslot .slds-text-body_small .slds-form-element__label{color:#877063;}
+        .runtime_appointmentbookingFlowTimeslot .slds-form-element__control .slds-radio_button-group .slds-radio_button{border: none!important; font-size: .7rem}
+        .slds-scope .slds-radio_button [type=radio]:checked+.slds-radio_button__label{background-color: #877063; color: #fff; border-radius: 0;}
+        .slds-scope .slds-radio_button [type=radio]:checked+.slds-radio_button__label:hover{background-color: #FAF7F1; color:#877063;}
+        .slds-scope h1, .slds-scope h2, .slds-scope h3, .slds-scope h4, .slds-scope h5, .slds-scope h6{color: #272727; font-family: Bauer Bodoni,serif; font-style: normal;}
+        .forcePageError.desktop .genericNotification{ border-radius: 0;}
+        .slds-scope .slds-card__footer{padding: 25px}
+        .slds-scope .slds-button_brand, .slds-scope .slds-button--brand{border-color: #D3D3D3; color:#877063; background-color: #FFF}
+        .slds-scope .slds-button_brand:hover, .slds-scope .slds-button--brand:hover{background-color: #FAF7F1; color:#877063;}
+        .slds-scope .slds-button_brand:active, .slds-scope .slds-button--brand:active,
+        .slds-scope .slds-button_brand:focus, .slds-scope .slds-button--brand:focus{background-color: #877063; color: #fff;}
+    </style>
+    <style>
+        /* .calender-info-wrapper{display: none} */
+        .slds-scope .slds-grid.slds-wrap .slds-slot{display: flex}
+        .slds-scope .slds-size_1-of-12, .slds-scope .slds-size--1-of-12{display: none;}
+        .slds-scope .slds-size_10-of-12, .slds-scope .slds-size--10-of-12{width: 100%; box-shadow: none!important; padding: 25px}
+        .slds-scope .slds-size_10-of-12 .slds-card{border: none;}
+        .slds-scope .slds-size_10-of-12 .slds-card__body{ margin: 0; padding: 0}
+        .slds-scope .slds-size_10-of-12 .slds-card__body .slds-var-m-top_medium:first-child{margin: 0!important; padding: 0!important;position: absolute; bottom: 10px; }
+        .slds-scope .slds-size_3-of-12:first-child, .slds-scope .slds-size--3-of-12:first-child{width: 40%; border-color: #877063}
+        .slds-scope .slds-size_3-of-12:last-child, .slds-scope .slds-size--3-of-12:last-child{width: 10%}
+        .slds-scope .slds-size_3-of-12 * {color: #272727!important; font-family: Bauer Bodoni,serif!important;}
+        .slds-scope .slds-size_3-of-12 slot div{padding-left: 0!important;}
+        .slds-scope .slds-size_3-of-12 img{margin: 0 auto; max-width: 200px; max-height: 150px;}
+        .slds-scope .slds-size_3-of-12 span{margin: 0!important;  }
+        .slds-scope .slds-size_3-of-12 lightning-icon{ }
+        .slds-scope .slds-size_3-of-12 span span{padding:0 0 0 10px!important; }
+        .slds-scope .slds-size_6-of-12 .slds-form-element__label{}
+        .slds-scope .slds-size_6-of-12  .slds-form-element__control{display: block}
+        .slds-scope .slds-size_6-of-12 div, .slds-scope .slds-size_6-of-12 .slds-var-m-top_medium{padding-top: 0!important;margin-top: 0!important;}
+        .slds-scope .slds-size_6-of-12 .slds-var-m-top_medium{padding-bottom: 10px!important;}
+        .slds-scope .slds-size_6-of-12 .slds-var-m-top_medium div{display: block; float: none;padding-bottom: 0!important;}
+        .slds-scope .slds-size_6-of-12 .slds-form-element__label:empty{display: none};
 
 </style>
 
@@ -32,14 +121,22 @@
     "https://aroma360--scheduler.sandbox.my.salesforce-sites.com/scheduler" // Community endpoint
   );
 </script>
-  <div class="container shadow-lg p-3 mb-5 bg-white rounded">
-  <div class="row justify-content-md-center">
-   
-    <div class="col"  id="lightningLocator">
-     
-    </div>
-    </div>
-  </div>
+  <div class=“calender-page-wrapper”>
+            <div class=“calender-info-wrapper”>
+                <div class=“branding”>
+                    <a href=“https://www.aroma360.com/” target=“_BLANK”><img src=“https://d3v0px0pttie1i.cloudfront.net/uploads/organization/logo/269374/5799d55a.png” alt=“Aroma360” title=“Aroma360" /></a>
+                </div>
+                <div class=“brand-info”>
+                    <h3>Aroma360<br/> Scent Consultation</h3>
+                    <h4>Select Service Appointment Time</h4>
+                </div>
+            </div>
+            <div class=“calender-widget-wrapper”>
+                <div id=“lightningLocator” class=“slds-scope” data-ltngout-rendered-by=“6:0”>
+                    <!-- <p>Lightning Component mentioned in the Script is invoked from here</p>-->
+                </div>
+            </div>
+        </div>
  
 
 </body>
