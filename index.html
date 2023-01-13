@@ -1,19 +1,38 @@
+<!doctype html>
+<html lang="">
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+​
+    <title>Aroma360 Scent Consultation - Select Service Appointment Time</title>
+    <meta name="description" content="One place destination for our partner data feeds">
+​
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+​
+    
+    <!-- Scripts -->
 </head>
 <body>
-<style>
-          .calender-page-wrapper{display: flex;flex-direction: row; align-content: stretch;
+    <style>
+        .slds-visual-picker_vertical .slds-visual-picker__figure { height: inherit !important;}
+        .runtime_appointmentbookingFlowLocation .slds-visual-picker_vertical { display: inline-flex !important; }
+    </style>
+    <style>
+        .calender-page-wrapper{display: flex;flex-direction: row; align-content: stretch; 
             margin: 25px auto; max-width: 1024px;transition: all .22s ease-out;border: 1px solid #eee;
             border-radius: 10px; box-shadow: 0 1px 8px 0 rgb(0 0 0 / 8%);background-color: #fff;
-            line-height: 1.125;color: #272727;font-family: Bauer Bodoni,serif;font-style: normal;letter-spacing: 0px;box-sizing: border-box;
+            line-height: 1.125;color: #1A1A1A;font-family: proxima nova,sans-serif;font-style: normal;letter-spacing: 0px;box-sizing: border-box; -webkit-font-smoothing: antialiased; word-break: break-word; overflow-wrap: break-word;
         }
         .calender-info-wrapper{ flex: 30%; width: 30%; align-self: flex-start; box-sizing: border-box;}
         .branding{ display: flex; justify-content: center; align-items: center; padding: 25px; border-bottom: 1px solid #eee;        }
         .branding img{max-width: 250px;max-height: 200px; min-height: 100px; width: 100%;}
         .brand-info{ justify-content: left; align-items: center; padding: 25px;}
         .calender-widget-wrapper{ flex: 70%; width: 70%; align-self: center; box-sizing: border-box;}
-        h3{ font-size: 26px;font-weight: 400;}
+        h3{ font-size: 26px;font-weight: 600;}
         h4{ font-size: 18px;font-weight: 400;}
         .brand-info h3{margin-top: 0;}
         @media (max-width: 800px) {
@@ -28,16 +47,24 @@
     <style>
         .calender-widget-wrapper .slds-scope:not(html), .calender-widget-wrapper .slds-scope body { font-size: 14px; background: transparent; }
         .calender-widget-wrapper .slds-scope {
-            font-family: Bauer Bodoni,serif;
+            font-family: proxima nova,sans-serif;
+            -webkit-font-smoothing: antialiased;
+            word-break: break-word;
+            overflow-wrap: break-word;
             font-size: 100%;
             line-height: 1.4em;
             background: transparent;;
-            color: #272727;
+            color: #1A1A1A;
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
-        .slds-scope .slds-spinner_brand.slds-spinner:after{background-color: #877063;}
+        .slds-scope .slds-spinner_brand.slds-spinner:before{background-color: rgba(0,105,255,0.15);}
+        .slds-scope .slds-spinner_brand .slds-spinner__dot-a:before{background-color: rgba(0,105,255,0.30)}
+        .slds-scope .slds-spinner_brand .slds-spinner__dot-b:before{background-color: rgba(0,105,255,0.45)}
+        .slds-scope .slds-spinner_brand.slds-spinner:after{background-color: rgba(0,105,255,0.60)}
+        .slds-scope .slds-spinner_brand .slds-spinner__dot-a:after{background-color: rgba(0,105,255,0.75)}
+        .slds-scope .slds-spinner_brand .slds-spinner__dot-b:after{background-color: rgba(0,105,255,0.90)}
         .slds-scope .slds-p-horizontal_small, .slds-scope .slds-p-horizontal--small{padding: 0; margin: 0}
-        .slds-scope .slds-card{ border: 1px solid #eee;color: #272727;padding: 0;margin: 0;border-radius: 0;background: transparent;box-shadow: none;}
+        .slds-scope .slds-card{ border: 1px solid #eee;color: #1A1A1A;padding: 0;margin: 0;border-radius: 0;background: transparent;box-shadow: none;}
         .slds-scope .slds-has-divider_bottom, .slds-scope .slds-has-divider--bottom{border-bottom: 1px solid #eee;}
         .slds-scope .slds-p-vertical_small, .slds-scope .slds-p-vertical--small{padding-top: 10px;padding-bottom: 10px;}
         .forcePageError{padding-bottom: 10px;margin-top: 25px; border-bottom: 1px solid #eee;}
@@ -47,36 +74,40 @@
         .calender-widget-wrapper .slds-scope .slds-page-header__title{font-size: 18px;font-weight: 400; line-height: 1.4em}
         .slds-scope .slds-form-element__control{display: inline-block;}
         .slds-scope button .slds-truncate{max-width: 250px}
-        .slds-scope .slds-form-element__label{color: #363636;font-family: Assistant,sans-serif; font-style: normal;}
-        .slds-scope .slds-input-has-icon_right .slds-input_faux{border: 1px solid #D3D3D3;  color: #363636;border-radius: 0;}
-        .slds-scope .slds-input-has-icon_right .slds-input[name=“date”]{--slds-c-input-spacing-horizontal-end: 0; padding: 0; border: 1px solid #877063;  color:#877063;border-radius: 0;}
-        .slds-scope .slds-button-group-list .slds-button{border-color: #D3D3D3; color:#877063;}
-        .slds-scope .slds-button-group-list .slds-button:hover{background-color: #FAF7F1;}
-        .slds-scope .slds-button_icon{color:#877063;}
-        .slds-scope .slds-input-has-icon_right .slds-input[name=“date”]:hover{background-color: #FAF7F1}
+        .slds-scope .slds-form-element__label{color: #363636;font-family: proxima nova,sans-serif; font-style: normal;}
+        .slds-scope .slds-input-has-icon_right .slds-input_faux{border: 1px solid rgba(0,105,255,0.065);  color: #363636;border-radius: 0;}
+        .slds-scope .slds-input-has-icon_right .slds-input[name="date"]{--slds-c-input-spacing-horizontal-end: 0; padding: 0;  color:#0069FF;border-radius: 0;border-color: rgba(0,105,255,0.065);}
+        .slds-scope .slds-button-group-list .slds-button{border-color: rgba(0,105,255,0.065); color: #0060e6;}
+        .slds-scope .slds-button-group-list .slds-button:hover{background-color: rgba(0,105,255,0.15)}
+        .slds-scope .slds-button_icon{color :rgba(0,105,255,1);}
+        .slds-scope .slds-input-has-icon_right .slds-input[name="date"]:hover{background-color: rgba(0,105,255,0.15)}
         .slds-scope .slds-input-has-icon_right .slds-input__icon{right: 14px;}
-        .slds-scope .slds-button_neutral, .slds-scope .slds-button--neutral{border-color: #D3D3D3; color:#877063;}
-        .slds-scope .slds-button_neutral:hover, .slds-scope .slds-button--neutral:hover{background-color: #FAF7F1;color:#877063;}
-        .slds-scope .slds-dropdown-trigger .slds-dropdown{z-index: 1000; width: auto; position: absolute; max-width: 150%;}
+        .slds-scope .slds-button_neutral, .slds-scope .slds-button--neutral{border-color: rgba(0,105,255,0.065); color:#0060e6; border-radius: 0;}
+        .slds-scope .slds-button_neutral:active, .slds-scope .slds-button--neutral:active,
+        .slds-scope .slds-button_neutral:focus, .slds-scope .slds-button--neutral:focus,
+        .slds-scope .slds-button_neutral:hover, .slds-scope .slds-button--neutral:hover{background-color: rgba(0,105,255,0.15);color:#0060e6;}
+        /* .slds-scope .slds-dropdown-trigger .slds-dropdown{z-index: 1000; width: auto; position: absolute; max-width: 150%;}*/
         .slds-grid.slds-grid_align-space.slds-has-divider_bottom.slds-p-vertical_small{margin-right: 20px}
-        .runtime_appointmentbookingFlowTimeslot .cardWith{min-width: 100%;}
+        .runtime_appointmentbookingFlowTimeslot .cardWith{min-width: 100%;}*/
         .runtime_appointmentbookingFlowTimeslot .noTimeSlots{width: 100%;right: 0;}
         .slds-scope .slds-p-horizontal_x-small, .slds-scope .slds-p-horizontal--x-small{padding: 0; text-align: center;}
         .runtime_appointmentbookingFlowTimeslot .slds-radio_button-group .slds-button.slds-radio_button label,
-        .slds-scope .slds-radio_button__label, .slds-scope .slds-radio--button__label{background-color: #fff; border-radius: 0 !important; border: 1px solid #877063;  color:#877063;padding: 5px 3px; line-height: 1.4em}
+        .slds-scope .slds-radio_button__label, .slds-scope .slds-radio--button__label{background-color: rgba(0,105,255,0.065); border-radius: 0 !important; border: 1px solid rgba(0,105,255,0.065);  color:#0060e6;padding: 5px 3px; line-height: 1.4em; font-weight: bold;}
         .runtime_appointmentbookingFlowTimeslot .slds-radio_button-group .slds-button.slds-radio_button label:hover,
-        .slds-scope .slds-radio_button__label:hover, .slds-scope .slds-radio--button__label:hover{background-color: #FAF7F1;}
-        .slds-scope .runtime_appointmentbookingFlowTimeslot .slds-text-body_small .slds-form-element__label{color:#877063;}
+        .slds-scope .slds-radio_button__label:hover, .slds-scope .slds-radio--button__label:hover{background-color: rgba(0,105,255,0.15)}
+        .slds-scope .runtime_appointmentbookingFlowTimeslot .slds-text-body_small .slds-form-element__label{color:#0060e6;}
         .runtime_appointmentbookingFlowTimeslot .slds-form-element__control .slds-radio_button-group .slds-radio_button{border: none!important; font-size: .7rem}
-        .slds-scope .slds-radio_button [type=radio]:checked+.slds-radio_button__label{background-color: #877063; color: #fff; border-radius: 0;}
-        .slds-scope .slds-radio_button [type=radio]:checked+.slds-radio_button__label:hover{background-color: #FAF7F1; color:#877063;}
-        .slds-scope h1, .slds-scope h2, .slds-scope h3, .slds-scope h4, .slds-scope h5, .slds-scope h6{color: #272727; font-family: Bauer Bodoni,serif; font-style: normal;}
+        .slds-scope .slds-radio_button [type=radio]:checked+.slds-radio_button__label{background-color: rgba(0,105,255,1); color: #FFF; border-radius: 0;}
+        .slds-scope .slds-radio_button [type=radio]:checked+.slds-radio_button__label:hover{background-color: rgba(0,105,255,1); color:#FFF;}
+        .slds-scope h1, .slds-scope h2, .slds-scope h3, .slds-scope h4, .slds-scope h5, .slds-scope h6{color: #1A1A1A; font-family: proxima nova,sans-serif; font-style: normal;}
+        .runtime_appointmentbookingFlowTimeslot .today{color: #1A1A1A;}
         .forcePageError.desktop .genericNotification{ border-radius: 0;}
         .slds-scope .slds-card__footer{padding: 25px}
-        .slds-scope .slds-button_brand, .slds-scope .slds-button--brand{border-color: #D3D3D3; color:#877063; background-color: #FFF}
-        .slds-scope .slds-button_brand:hover, .slds-scope .slds-button--brand:hover{background-color: #FAF7F1; color:#877063;}
+        .slds-scope .slds-button_brand, .slds-scope .slds-button--brand{border-color: rgba(0,105,255,0.065); color:#0060e6; background-color: #FFF; border-radius: 0;}
+        .slds-scope .slds-button_brand:hover, .slds-scope .slds-button--brand:hover{background-color: rgba(0,105,255,0.15); color:#0060e6;}
         .slds-scope .slds-button_brand:active, .slds-scope .slds-button--brand:active,
-        .slds-scope .slds-button_brand:focus, .slds-scope .slds-button--brand:focus{background-color: #877063; color: #fff;}
+        .slds-scope .slds-button_brand:focus, .slds-scope .slds-button--brand:focus{background-color: rgba(0,105,255,0.15); color: #0060e6;}
+​
     </style>
     <style>
         /* .calender-info-wrapper{display: none} */
@@ -86,52 +117,30 @@
         .slds-scope .slds-size_10-of-12 .slds-card{border: none;}
         .slds-scope .slds-size_10-of-12 .slds-card__body{ margin: 0; padding: 0}
         .slds-scope .slds-size_10-of-12 .slds-card__body .slds-var-m-top_medium:first-child{margin: 0!important; padding: 0!important;position: absolute; bottom: 10px; }
-        .slds-scope .slds-size_3-of-12:first-child, .slds-scope .slds-size--3-of-12:first-child{width: 40%; border-color: #877063}
+        .slds-scope .slds-size_3-of-12:first-child, .slds-scope .slds-size--3-of-12:first-child{width: 40%; border-color: #eee; border-width: 1px;}
         .slds-scope .slds-size_3-of-12:last-child, .slds-scope .slds-size--3-of-12:last-child{width: 10%}
-        .slds-scope .slds-size_3-of-12 * {color: #272727!important; font-family: Bauer Bodoni,serif!important;}
+        .slds-scope .slds-size_3-of-12 * {color: #1A1A1A!important; font-family: 'proxima nova',sans-serif!important;}
         .slds-scope .slds-size_3-of-12 slot div{padding-left: 0!important;}
         .slds-scope .slds-size_3-of-12 img{margin: 0 auto; max-width: 200px; max-height: 150px;}
-        .slds-scope .slds-size_3-of-12 span{margin: 0!important;  }
+        .slds-scope .slds-size_3-of-12 span{margin: 0!important; display: flex; color: rgba(26,26,26,0.61) !important; font-weight: 700;}
         .slds-scope .slds-size_3-of-12 lightning-icon{ }
-        .slds-scope .slds-size_3-of-12 span span{padding:0 0 0 10px!important; }
-        .slds-scope .slds-size_6-of-12 .slds-form-element__label{}
+        .slds-scope .slds-size_3-of-12 span span{padding:0 10px 0 0!important; }
+        .slds-scope .slds-size_6-of-12 .slds-form-element__label{color: #1A1A1A;  font-weight: 700;}
+        .slds-scope .slds-size_6-of-12 lightning-formatted-text{color: #1A1A1A!important;  font-weight: 700;}
+        .slds-required{float: right;}
         .slds-scope .slds-size_6-of-12  .slds-form-element__control{display: block}
         .slds-scope .slds-size_6-of-12 div, .slds-scope .slds-size_6-of-12 .slds-var-m-top_medium{padding-top: 0!important;margin-top: 0!important;}
         .slds-scope .slds-size_6-of-12 .slds-var-m-top_medium{padding-bottom: 10px!important;}
         .slds-scope .slds-size_6-of-12 .slds-var-m-top_medium div{display: block; float: none;padding-bottom: 0!important;}
         .slds-scope .slds-size_6-of-12 .slds-form-element__label:empty{display: none};
-
-</style>
-
-<script src="https://aroma360--scheduler.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
-<script>
-  $Lightning.use(
-    "runtime_appointmentbooking:lightningOutGuest", // name of the Lightning app
-    function () {
-      $Lightning.createComponent(
-        "lightning:flow", // top-level component of your app
-        {}, // attributes to set on the component when created
-        "lightningLocator", // the DOM location to insert the component
-        function (cmp) {
-          console.log("Hi from callback"); // callback when component is created and active on the page
-          cmp.startFlow("Inbound_Guest_Appointment_New_v1");
-        }
-      );
-    },
-    "https://aroma360--scheduler.sandbox.my.salesforce-sites.com/scheduler" // Community endpoint
-  );
- window.onload = function() {
-        document.getElementById("lightningLocator").addEventListener("DOMSubtreeModified", function(e) {
-        console.log(document.getElementsByClassName('slds-page-header__name-title').length);
-            if(!document.getElementsByClassName('slds-page-header__name-title').length){
-                document.getElementsByClassName('calender-info-wrapper')[0].style.display = 'none';
-            }else{
-                document.getElementsByClassName('calender-info-wrapper')[0].style.display = 'block';
-            }
-        }, false);
-    }
-</script>
-  <div class="calender-page-wrapper">
+        .slds-scope .slds-size_6-of-12 .slds-button_brand{}
+        .slds-scope lightning-layout-item .slds-button_brand{ border-color: rgb(0,105,255); background-color: rgb(0,105,255); color: rgba(255,255,255,1); font-weight: 700; line-height: 22px;padding: 8px 16px; border: 1px solid transparent; border-radius: 40px;}
+        .slds-scope lightning-layout-item .slds-button_brand:hover, .slds-scope lightning-layout-item .slds-button_brand:active, .slds-scope lightning-layout-item .slds-button_brand:focus{background-color: rgba(0,105,255,0.8); color: #fff}
+    </style>
+​
+​
+    <div id="app">
+        <div class="calender-page-wrapper">
             <div class="calender-info-wrapper">
                 <div class="branding">
                     <a href="https://www.aroma360.com/" target="_BLANK"><img src="https://d3v0px0pttie1i.cloudfront.net/uploads/organization/logo/269374/5799d55a.png" alt="Aroma360" title="Aroma360" /></a>
@@ -147,6 +156,55 @@
                 </div>
             </div>
         </div>
- 
-
+    </div>
+​
+    <script src="https://aroma360--scheduler.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
+    <script>
+        var today = false;
+    $Lightning.use(
+        "runtime_appointmentbooking:lightningOutGuest", // name of the Lightning app
+        function () {
+            $Lightning.createComponent(
+                "lightning:flow", // top-level component of your app
+                {}, // attributes to set on the component when created
+                "lightningLocator", // the DOM location to insert the component
+                function (cmp) {
+                    console.log("Hi from callback"); // callback when component is created and active on the page
+                    cmp.startFlow("Inbound_Guest_Appointment_New_v1");
+                    setTimeout(customize, 1500);
+                }
+            );
+        },
+        "https://aroma360--scheduler.sandbox.my.salesforce-sites.com/scheduler" // Community endpoint
+    );
+    
+    function customize(){
+        document.getElementById("lightningLocator").addEventListener("DOMSubtreeModified", function(e) {
+            // console.log(document.getElementsByClassName('slds-page-header__control').length, document.getElementsByClassName('slds-page-header__name').length, document.getElementsByClassName('slds-page-header__name-title').length);
+            if(!document.getElementsByClassName('slds-page-header__name-title').length){
+                document.getElementsByClassName('calender-info-wrapper')[0].style.display = 'none';
+            }else{
+                document.getElementsByClassName('calender-info-wrapper')[0].style.display = 'block';
+            }
+            if(!today){
+                if(document.getElementsByClassName('slds-page-header__control').length){
+                    let wraps = document.getElementsByClassName('slds-page-header__control');
+                    for(let w = 0; w < wraps.length; w++){
+                        let wrap = wraps[w];
+                        if(typeof wrap.querySelector("button") != 'undefined' && typeof wrap.querySelector("button").innerText != 'undefined' && wrap.querySelector("button").innerText == 'Today'){
+                            setTimeout(function(){
+                                wrap.querySelector("button").click();
+                                console.log('Tried to go to today');
+                            }, 2500);
+                            console.log('Found today button');
+                            today = true;
+                        }
+                    }
+                }
+            }
+​
+        }, false);
+    }
+    </script>
 </body>
+</html>
